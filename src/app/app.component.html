@@ -1,4 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<form name='bookmarkForm' (ngSubmit)="createBookmark()">
   <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -8,56 +9,56 @@
       <div class="row">
         <div class="col-md-12">
           <div class="form-group"> <label>URL *</label>
-            <input type="text" class="form-control" placeholder="Enter URL" required> </div>
+            <input [(ngModel)]="data.url"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Enter URL" required> </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="form-group"> <label>Title *</label>
-            <input type="text" class="form-control" placeholder="Enter title"  required>
+            <input [(ngModel)]="data.title"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Enter title"  required>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="form-group"> <label>Description * </label>
-            <textarea class="form-control" placeholder="Enter Description"  required></textarea>
+            <textarea [(ngModel)]="data.description"  [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter Description"  required></textarea>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
           <div class="form-group"> <label>Tags *</label>
-            <input type="text" class="form-control" placeholder="Enter tags"  required>
+            <input [(ngModel)]="data.tags"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Enter tags"  required>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group"> <label>Category *</label>
-            <input type="text" class="form-control" placeholder="Enter category"  required>
+            <input [(ngModel)]="data.category"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Enter category"  required>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="form-group"> <label>Author  </label>
-            <input type="text" class="form-control" placeholder="Enter Author">
+            <input [(ngModel)]="data.author"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Enter Author">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group"> 
             <label>Hidden</label>
-            <input type="checkbox">
+            <input [(ngModel)]="data.hidden"  [ngModelOptions]="{standalone: true}" type="checkbox">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <button class='btn btn-primary col-md-12'>Submit</button> 
+          <button type='submit' class='btn btn-primary col-md-12'>Submit</button> 
       </div>
       <br/><br/>
       <div class='col-md-12'>
         <ngb-alert [dismissible]="true">
-          <strong>Warning!</strong> Better check yourself, you're not looking too good.
+          {{data | json}}
         </ngb-alert>
       </div>
     </div>
